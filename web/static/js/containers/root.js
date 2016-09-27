@@ -1,0 +1,21 @@
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router } from 'react-router'
+import invariant from 'invariant'
+import routes from '../routes'
+
+const Root = ({ routerHistory, store }) => {
+  invariant(
+    routerHistory,
+    '<Root /> needs either a routingContext or routerHistory to render.'
+  )
+  return (
+    <Provider store={store}>
+      <Router history={routerHistory}>
+        {routes}
+      </Router>
+    </Provider>
+  )
+}
+
+export default Root
