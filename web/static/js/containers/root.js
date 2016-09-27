@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
 import invariant from 'invariant'
@@ -16,6 +16,11 @@ const Root = ({ routerHistory, store }) => {
       </Router>
     </Provider>
   )
+}
+
+Root.propTypes = {
+  routerHistory: PropTypes.object.isRequired,
+  store: PropTypes.object.isRequired
 }
 
 export default Root

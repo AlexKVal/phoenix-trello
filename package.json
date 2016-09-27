@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint .",
     "test": "npm run lint"
   },
   "repository": {
@@ -29,11 +29,18 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-preset-stage-2": "^6.3.13",
     "css-loader": "^0.23.1",
+    "eslint": "^3.6.1",
+    "eslint-config-standard": "^6.1.0",
+    "eslint-config-standard-jsx": "^3.1.0",
+    "eslint-config-standard-react": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-react": "^6.3.0",
+    "eslint-plugin-standard": "^2.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
-    "standard": "^8.2.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.11"
   },
@@ -61,10 +68,5 @@
     "redux": "^3.3.1",
     "redux-logger": "^2.3.2",
     "redux-thunk": "^1.0.2"
-  },
-  "standard": {
-    "ignore": [
-      "web/static/js/phoenix.js"
-    ]
   }
 }
