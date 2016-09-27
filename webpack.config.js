@@ -1,29 +1,29 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
+var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var webpack = require('webpack')
 
-function join(dest) { return path.resolve(__dirname, dest); }
+function join (dest) { return path.resolve(__dirname, dest) }
 
-function web(dest) { return join('web/static/' + dest); }
+function web (dest) { return join('web/static/' + dest) }
 
 var config = {
   entry: {
     application: [
       web('css/application.sass'),
-      web('js/application.js'),
-    ],
+      web('js/application.js')
+    ]
   },
 
   output: {
     path: join('priv/static'),
-    filename: 'js/application.js',
+    filename: 'js/application.js'
   },
 
   resolve: {
     extesions: ['', '.js', '.sass'],
-    modulesDirectories: ['node_modules'],
+    modulesDirectories: ['node_modules']
   },
 
   module: {
@@ -36,26 +36,27 @@ var config = {
         query: {
           cacheDirectory: true,
           plugins: ['transform-decorators-legacy'],
-          presets: ['react', 'es2015', 'stage-2', 'stage-0'],
-        },
+          presets: ['react', 'es2015', 'stage-2', 'stage-0']
+        }
       },
       {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass?indentedSyntax&includePaths[]=' + __dirname +  '/node_modules'),
-      },
-    ],
+        // eslint-disable-next-line
+        loader: ExtractTextPlugin.extract('style', 'css!sass?indentedSyntax&includePaths[]=' + __dirname + '/node_modules')
+      }
+    ]
   },
 
   plugins: [
-    new ExtractTextPlugin('css/application.css'),
-  ],
-};
+    new ExtractTextPlugin('css/application.css')
+  ]
+}
 
 if (process.env.NODE_ENV === 'production') {
   config.plugins.push(
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ minimize: true })
-  );
+  )
 }
 
 module.exports = config

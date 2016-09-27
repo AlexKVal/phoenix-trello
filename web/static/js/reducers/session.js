@@ -1,9 +1,9 @@
 const initialState = {
   currentUser: null,
   socket: null,
-  error: null,
+  error: null
 }
 
-export default function sessionReducer(state = initialState, action = {}) {
+export default function sessionReducer (state = initialState, action = {}) {
   return state
 }

@@ -6,26 +6,16 @@ import rootReducer from '../reducers'
 
 const loggerMiddleware = createLogger({
   level: 'info',
-  collapsed: true,
+  collapsed: true
 })
 
-export default function configureStore(browserHistory) {
+export default function configureStore (browserHistory) {
   const reduxRouterMiddleware = syncHistory(browserHistory)
   const createStoreWithMiddleware = applyMiddleware(
     reduxRouterMiddleware,
     thunkMiddleware,
-    loggerMiddleware,
+    loggerMiddleware
   )(createStore)
 
   return createStoreWithMiddleware(rootReducer)
-
-  // return createStore(
-  //   rootReducer,
-  //   preloadedState,
-  //   applyMiddleware(
-  //     reduxRouterMiddleware,
-  //     thunkMiddleware,
-  //     loggerMiddleware,
-  //   )
-  // )
 }

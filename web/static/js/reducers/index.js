@@ -4,5 +4,5 @@ import session from './session'
 
 export default combineReducers({
   routing: routeReducer,
-  session,
+  session
 })
