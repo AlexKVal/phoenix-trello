@@ -1,5 +1,5 @@
 defmodule PhoenixTrello.RegistrationController do
-  user PhoenixTrello.Web, :controller
+  use PhoenixTrello.Web, :controller
 
   alias PhoenixTrello.{Repo, User, SessionView, RegistrationView}
 
