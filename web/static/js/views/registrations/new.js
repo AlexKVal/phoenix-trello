@@ -9,7 +9,7 @@ class RegistrationsNew extends React.Component {
   constructor (...args) {
     super(...args)
 
-    this._handleSubmit.bind(this)
+    this._handleSubmit = this._handleSubmit.bind(this)
   }
   componentDidMount () {
     setDocumentTitle('Sign up')

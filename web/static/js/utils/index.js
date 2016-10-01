@@ -33,6 +33,16 @@ export function httpPost (url, data) {
   .then(parseJSON)
 }
 
+export function renderError (error) {
+  if (!error) return false
+
+  return (
+    <div className='error'>
+      {error}
+    </div>
+  )
+}
+
 export function renderErrorsFor (errors, ref) {
   if (!errors) return false
 
