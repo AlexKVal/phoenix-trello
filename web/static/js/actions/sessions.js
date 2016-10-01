@@ -1,6 +1,6 @@
 import { routeActions } from 'redux-simple-router'
 import Constants from '../constants'
-import { httpGet, httpPost } from '../utils'
+import { httpGet, httpPost, httpDelete } from '../utils'
 
 function setCurrentUser (dispatch, user) {
   dispatch({
@@ -33,6 +33,21 @@ const Actions = {
         }))
       })
     }
+  },
+
+  signOut () {
+    return dispatch =>
+      httpDelete('/api/v1/sessions')
+      .then(data => {
+        localStorage.removeItem('phoenixAuthToken')
+
+        dispatch({
+          type: Constants.USER_SIGNED_OUT
+        })
+
+        dispatch(routeActions.push('/sign_in'))
+      })
+      .catch(console.log)
   },
 
   fetchCurrentUser () {
